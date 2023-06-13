@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Page</title>
+    <link rel="shortcut icon" href="./img/fav-icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="navbar2" id="navbarScroll">
+        <header>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="logo"><a href="index.html"><img src="./img/logo2.png" alt=""></a></div>
+
+            <nav class="nav-bar">
+                <ul class="nav-links">
+                    <li class="dropdown2 nav-item">
+                        <a href="" class="dropbtn">About</a>
+                        <div class="dropdown-content">
+                            <a href="#"><img src="./img/about.jpg" alt=""><br>
+                                <h4>ABOUT</h4>
+                            </a>
+                            <a href="#"><img src="./img/responsibility.jpg" alt=""><br>
+                                <h4>RESPONSIBILITY</h4>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="dropdown2">
+                        <a class="dropbtn" href="shop.html">Bridal</a>
+                        <div class="dropdown-content">
+                            <a href="#"><img src="./img/bridal.png" alt=""><br>
+                                <h4>BRIDAL</h4>
+                            </a>
+                            <a href="#"><img src="./img/collections.jpg" alt=""><br>
+                                <h4>COLLECTIONS</h4>
+                            </a>
+                            <a href="#"><img src="./img/Accessories.jpg" alt=""><br>
+                                <h4>ACCESSORIES</h4>
+                            </a>
+                            <a href="#"><img src="./img/Second-look.jpg" alt=""><br>
+                                <h4>SECOND LOOK</h4>
+                            </a>
+                        </div>
+                    </li>
+                    <li class=" dropdown2">
+                        <a class="dropbtn" href="product.html">Fashion</a>
+                        <div class="dropdown-content">
+                            <a href="product.html"><img src="./img/ALL-Category.jpg" alt=""><br>
+                                <h4>ALL</h4>
+                            </a>
+                            <a href="product.html"><img src="./img/MOTB-category-1.jpg" alt=""><br>
+                                <h4>MOTHER-OF-THE-BRIDE</h4>
+                            </a>
+                            <a href="product.html"><img src="./img/Wedding-Guest-Category.jpg" alt=""><br>
+                                <h4>GUEST</h4>
+                            </a>
+                            <a href="product.html"><img src="./img/RACES-Dropdown.jpg" alt=""><br>
+                                <h4>RACES & SPECIAL OCCASIONS</h4>
+                            </a>
+                            <a href="product.html"><img src="./img/Second-Dress-Category.jpg" alt=""><br>
+                                <h4>SECOND LOOK</h4>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="dropdown2">
+                        <a class="dropbtn" href="">Appointment</a>
+                        <div class="dropdown-content">
+                            <a href="#">BOOK LONDON</a><a href="#">BOOK SOMMERSET</a>
+                        </div>
+                    </li>
+                    <li class="dropdown2">
+                        <a class="dropbtn" href="">Enquiries</a>
+                        <div class="dropdown-content">
+                            <a href="#">MAKE AN ENQUIRY</a>
+                        </div>
+                    </li>
+                    <li class="dropdown2">
+                        <a class="dropbtn" href="">Blog</a>
+                        <div class="dropdown-content">
+                            <a href="#"><img src="./img/blog1.png" alt=""><br>
+                                <h4>VIEW ALL</h4>
+                            </a>
+                            <a href="#"><img src="./img/blog2.jpg" alt=""><br>
+                                <h4>ARTICLES</h4>
+                            </a>
+                            <a href="#"><img src="./img/blog3.jpg" alt=""><br>
+                                <h4>AS SEEN ON</h4>
+                            </a>
+                            <a href="#"><img src="./img/blog4.jpg" alt=""><br>
+                                <h4>EVENTS</h4>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="dropdown2">
+                        <a class="dropbtn" href="">Our Stores</a>
+                        <div class="dropdown-content">
+                            <a href="#">LONDON</a><a href="#">SOMMERSET</a>
+                        </div>
+                    </li>
+                    <li class="dropdown2">
+                        <a class="dropbtn" href="">Stockist</a>
+                        <div class="dropdown-content">
+                            <a href="#"><img src="./img/stickist.jpg" alt=""><br>
+                                <h4>FIND A STOCKIST</h4>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="last-link">
+                        <a href="account.html">Account</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="inner-right">
+                <ul>
+                    <li>
+                        <a class="first-child" href="account.html">My Account</a>
+                    </li>
+                    <li>
+                        <a href=""><i class="fa fa-search"></i></a>
+                    </li>
+                    <li>
+                        <a href="cart.html"><i class="fa fa-shopping-bag"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+    </div>
+    <main>
+        <div class="txt-heading">
+            <h1>SHOPPING BAG</h1>
+        </div>
+        <div class="cart-alert">
+            <h3>YOUR BAG</h3>
+            <p>YOU'VE GOT <b id="count"></b> ITEM(S) IN YOUR BAG</p>
+        </div>
+        <div style="margin-bottom: 200px;" id="shopping-cart">
+            <div class="center-cart">
+                <div class="cart-table-left">
+                    <a onClick="emptyCart()" id="btnEmpty">Empty Cart</a>
+                    <table class="tbl-cart" cellpadding="10" cellspacing="1">
+                        <thead>
+                            <tr>
+                                <th width="5%">ITEM</th>
+                                <th width="10%">DESCRIPTION</th>
+                                <th class='text-right' width="3%">Quantity</th>
+                                <th class='text-right' width="3%">PRICE</th>
+                            </tr>
+                        </thead>
+                        <!--  Cart table to load data on "add to cart" action -->
+                        <tbody id="cartTableBody" class="table-content">
+                        </tbody>
+                        <!-- <tfoot>
+                            <tr>
+                                <td class="text-right">Total:</td>
+                                <td id="itemCount" class="text-right" colspan="2"></td>
+                                <td id="totalAmount" class="text-right"></td>
+                            </tr>
+                        </tfoot> -->
+                    </table>
+                    <label for="DISCOUNT CODE">DISCOUNT CODE</label>
+                    <div class="discount">
+                        <input type="text" id="username" name="username" required>
+                        <button class="updateCartBtn">APPLY</button>
+                        <button class="updateCartBtn" id="updateCartBtn">UPDATE CART</button>
+                    </div>
+                    <div style="margin-top: 50px;" class="cart-footer">
+                        <div class="footer-price">
+                            <h3>SUB TOTAL</h3>
+                            <p id="totalAmount"></p>
+                        </div>
+                        <hr style="margin:0 0 30px 0; border: none; border-top: 2px solid #9d9fa3;">
+                        <div class="checkout">
+                            <input class="cart-button btn-margin" type="submit" value="CHECKOUT" class="add-to-cart" />
+                            <a href="cart.html" class="basket-link">GO TO BASKET </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-link-right">
+                    <h2>CONTACT US</h2>
+                    <div>
+                        <p>If you have any queries or need further assistance, <b>please send us an enquiry</b>.
+                        </p>
+                    </div>
+                    <h2>DELIVERY</h2>
+                    <div>
+                        <p>Shop confidently, we’ll make your returns easy. <b>Read more about delivery and returns.</b>
+                        </p>
+                    </div>
+                    <h2>SECURE PAYMENTS</h2>
+                    <div>
+                        <p>We accept all major cards. Your security is our priority. We keep your payment details safe.
+                            <b>Read our privacy policy.</b>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+
+
+    <footer>
+        <div class="copyright col-2">
+            <h6>© 2023 SASSI HOLFORD</h6>
+            <a href="">TERMS & CONDITIONS</a>
+            <a href="">PRIVACY POLICY</a>
+            <a href="">WEBSITE BY GC</a>
+            <a href="">WEBSITE HOSTED AND MAINTAINED BY DOUBLE BRACE</a>
+        </div>
+        <div class="aboutUs col-2">
+            <h6>ABOUT US</h6>
+            <a href="">OUR STORES</a>
+            <a href="">STOCKISTS</a>
+            <a href="">OUR STORY</a>
+            <a href="">RESPONSIBILITY</a>
+            <a href="">BLOG</a>
+        </div>
+        <div class="collections col-2">
+            <h6>COLLECTIONS</h6>
+            <a href="">LET THERE BE LOVE</a>
+            <a href="">2022 LOVE CONQUERS ALL</a>
+            <a href="">ASTERIA</a>
+            <a href="">SASSI'S SIGNATURES</a>
+            <a href="">ACCESSORIES</a>
+        </div>
+        <div class="info col-2">
+            <h6>INFO</h6>
+            <a href="">SIZE HELP</a>
+            <a href="">DELIVERY AND RETURNS</a>
+            <a href="">FAQS</a>
+            <a href="">STOCKIST PORTAL</a>
+        </div>
+        <div class="followUs col-2">
+            <h6>FOLLOW SASSI</h6>
+            <div class="social">
+                <a href=""><img src="./img/facebook.png" alt=""></a><a href=""><img src="./img/instagram.png"
+                        alt=""></a><a href=""><img src="./img/pinterest.png" alt=""></a><a href=""><img
+                        src="./img/twitter.png" alt=""></a><a href=""><img src="./img/youtube.png" alt=""></a>
+            </div>
+            <h6>MAILING LIST</h6>
+            <a href="">SIGN UP</a>
+            <a href="">Sign up to receive 10% off your first online ready-to-wear order.</a>
+        </div>
+    </footer>
+    <div class="footer2">
+        <h4>JOIN OUR MAILING LIST</h4>
+        <p style="font-size: 13px;">Sign up for the latest news and receive 10% off your first online <br> ready-to-wear
+            order.</p>
+        <a href="account.html">Sign Up</a>
+        <h6>© 2023 Sassi Holford</h6>
+        <p style="color: #9d9fa3;;">TERMS & CONDITIONS <br>PRIVACY POLICY</p>
+        <div class="social-link">
+            <a href=""><img src="./img/facebook.png" alt=""></a><a href=""><img src="./img/instagram.png" alt=""></a><a
+                href=""><img src="./img/pinterest.png" alt=""></a><a href=""><img src="./img/twitter.png" alt=""></a><a
+                href=""><img src="./img/youtube.png" alt=""></a>
+        </div>
+    </div>
+
+    <script src="./js/jquery-3.6.4.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script type="text/javascript">
+        let hamburger = document.querySelector(".hamburger");
+        hamburger.onclick = function () {
+            let navbar = document.querySelector(".nav-bar");
+            navbar.classList.toggle("active");
+        };
+    </script>
+</body>
+
+</html>

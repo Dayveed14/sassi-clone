@@ -1,0 +1,196 @@
+header {
+    overflow: hidden;
+    justify-content: unset;
+    gap: 51rem;
+}
+
+.sidebar {
+    height: 100%;
+    width: 200px;
+    background-color: #f1f1f1;
+    position: fixed;
+    top: 50px;
+    left: 0;
+}
+
+
+.content {
+    margin-left: 200px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    margin-top: 50px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.sidebar li:hover {
+    background-color: #ddd;
+}
+
+.active {
+    background-color: #ccc;
+}
+
+.sidebar li a {
+    text-decoration: none;
+    color: black;
+}
+
+.inner-content {
+    display: flex;
+}
+
+.card {
+    width: 200px;
+    height: 150px;
+    background-color: #f1f1f1;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.userForm input[type=text],
+.userForm input[type=email],
+.userForm input[type=tel],
+.userForm input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+input[type=text]:focus,
+.userForm input[type=email]:focus,
+.userForm input[type=tel]:focus,
+.userForm input[type=password]:focus {
+    border: 3px solid #555;
+}
+
+
+.userForm .button5,
+.btnDesign {
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+}
+
+.userForm .button5:hover,
+.btnDesign:hover {
+    background-color: #555555;
+    color: white;
+}
+
+.oldContent,
+.userForm {
+
+    display: inline-block;
+    text-align: left;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 50px;
+    width: 50%;
+}
+
+.oldContent p {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+}
+
+@media only screen and (max-width: 1176px) {
+    header {
+        gap: 0px;
+    }
+
+    .logo {
+        margin-left: 0px;
+        margin-right: 17rem;
+    }
+}
+
+@media (max-width: 761px) {
+    header {
+        gap: 0px;
+    }
+
+    .logo {
+        margin-left: 0;
+        margin-right: 20rem;
+    }
+}
+
+@media (max-width: 721px) {
+    header {
+        gap: 0px;
+    }
+
+    .logo {
+        margin-left: 0;
+        margin-right: 20rem;
+    }
+
+    /* 
+
+    .display {
+        overflow-x: auto
+    } */
+
+    .sidebar {
+        width: 100px;
+    }
+
+    .content {
+        margin-left: 100px;
+    }
+
+    .oldContent,
+    .userForm {
+        display: unset;
+        text-align: unset;
+        margin-left: 30px;
+        width: 100%;
+    }
+
+    .userForm input[type=text],
+    .userForm input[type=email],
+    .userForm input[type=tel],
+    .userForm input[type=password] {
+        width: 100%;
+        padding: 8px;
+    }
+
+    .userForm .button5,
+    .btnDesign {
+        padding: 8px 16px;
+    }
+
+    .footer2 {
+        margin-left: 60px;
+    }
+}

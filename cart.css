@@ -1,0 +1,424 @@
+body {
+	font-size: 0.9em;
+}
+
+.text-right {
+	text-align: right;
+}
+
+#shopping-cart {
+	margin: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.center-cart {
+	width: 80%;
+	display: flex;
+	align-items: flex-start;
+	gap: 7rem;
+}
+
+.cart-table-left {
+	width: 60%;
+}
+
+#product-grid {
+	margin: 40px;
+}
+
+#shopping-cart table {
+	width: 100%;
+	background-color: #F0F0F0;
+}
+
+#shopping-cart table td {
+	background-color: #FFFFFF;
+}
+
+.txt-heading {
+	padding: 2rem 5rem 0 5rem;
+}
+
+.cart-alert {
+	margin: 2rem 5rem;
+}
+
+.cart-alert h3 {
+	margin-bottom: -30px;
+	font-weight: 400;
+	color: #9d9fa3;
+	line-height: 1.4;
+	letter-spacing: .04rem;
+}
+
+.cart-alert p {
+	font-size: 1.91666667rem;
+	line-height: 1.2;
+	font-weight: 600;
+}
+
+#btnEmpty {
+	float: right;
+	margin-bottom: 30px;
+}
+
+.add-to-cart {
+	padding: 5px 10px;
+	margin-left: 5px;
+	background-color: #efefef;
+	border: #E0E0E0 1px solid;
+	color: #211a1a;
+	text-decoration: none;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+#product-grid .txt-heading {
+	margin-bottom: 18px;
+}
+
+#product-item-container {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 50px;
+	justify-content: center;
+}
+
+.product-parent {
+	width: 30%;
+}
+
+.product-parent .product-child .productname p {
+	font-weight: 800;
+	color: #141517;
+	margin-bottom: 0.5rem;
+}
+
+.product-parent .product-child .price {
+	display: inline-block;
+	font-size: 1.33333333rem;
+	text-transform: uppercase;
+	color: #9d9fa3;
+	margin: 0;
+	font-weight: 300;
+}
+
+.clear-float {
+	clear: both;
+}
+
+.demo-input-box {
+	border-radius: 2px;
+	border: #CCC 1px solid;
+	padding: 2px 1px;
+}
+
+.tbl-cart {
+	font-size: 0.9em;
+}
+
+.tbl-cart th {
+	font-weight: normal;
+}
+
+.product-title {
+	margin-bottom: 20px;
+}
+
+.product-price {
+	float: left;
+}
+
+.product-quantity {
+	padding: 5px 10px;
+	border-radius: 3px;
+	border: #E0E0E0 1px solid;
+}
+
+.product-tile-footer {
+	padding: 15px 15px 0px 15px;
+	overflow: auto;
+}
+
+.cart-item-image {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	border: #E0E0E0 1px solid;
+	padding: 5px;
+	vertical-align: middle;
+	margin-right: 15px;
+}
+
+.no-records {
+	text-align: center;
+	clear: both;
+	margin: 38px 0px;
+}
+
+.wrap_product {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.table-content tr td img {
+	width: 150px;
+}
+
+.cart-link-right {
+	width: 20%;
+}
+
+.cart-link-right h2 {
+	font-weight: 500;
+	color: #9d9fa3;
+	line-height: 1.4;
+	letter-spacing: .04rem;
+	font-size: 1rem;
+	margin-bottom: 1.25rem;
+}
+
+.cart-link-right div p {
+	color: #141517;
+	margin: 0 0 2.5rem;
+	line-height: 1.8;
+	margin-bottom: 1rem;
+	font-weight: 300;
+	max-width: 100%;
+}
+
+th {
+	font-weight: 400;
+	color: #9d9fa3;
+	line-height: 1.4;
+	letter-spacing: .04rem;
+}
+
+.table-pdt-name {
+	font-size: 14px;
+	font-weight: 700;
+	cursor: pointer;
+	color: #141517;
+}
+
+.table-pdt-name:hover {
+	color: #9d9fa3;
+}
+
+.table-price {
+	font-size: 1.33333333rem;
+	text-transform: uppercase;
+	color: #9d9fa3;
+	margin: 0;
+	font-weight: 300;
+}
+
+.remove-button {
+	color: #141517;
+	text-transform: uppercase;
+	font-size: .8rem;
+	letter-spacing: .06rem;
+}
+
+.remove-button:hover {
+	color: black;
+}
+
+table select {
+	width: 100%;
+	max-width: 100%;
+	padding: 0.5rem 0.5rem 0.5rem 0;
+	border: none;
+	border-bottom: 2px solid black;
+	background-color: transparent;
+	font-size: 1rem;
+	cursor: pointer;
+	box-shadow: none;
+	box-sizing: none;
+	outline: none;
+}
+
+table {
+	margin-bottom: 20px;
+}
+
+label {
+	cursor: text;
+	width: 100%;
+	overflow: hidden;
+	text-transform: uppercase;
+	font-size: .7rem;
+	letter-spacing: .05rem;
+	font-weight: 500;
+}
+
+.discount {
+	display: flex;
+	justify-content: space-between;
+}
+
+.updateCartBtn,
+#btnEmpty {
+	padding: 1.33333333rem 2.08333333rem;
+	color: #fff;
+	background-color: #141517;
+	font-family: runda, sans-serif;
+	font-size: .83333333rem;
+	font-weight: 700;
+	letter-spacing: .05rem;
+	line-height: 1.2;
+	text-transform: uppercase;
+	border: 2px solid #141517;
+	cursor: pointer;
+	text-align: center;
+	transition: background-color 1s, color 1s;
+	margin-top: 20px;
+}
+
+.updateCartBtn:hover,
+#btnEmpty:hover {
+	color: #141517;
+	background-color: #fff;
+}
+
+.discount input[type=text] {
+	width: unset;
+}
+
+.cart-footer {
+	background-color: #f1f1f1;
+	height: 200px;
+	padding: 0 50px;
+}
+
+.footer-price {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.btn-margin {
+	margin-right: 17.7rem;
+}
+
+.checkout a {
+	padding: 1.33333333rem 2.08333333rem;
+	color: #141517;
+	background-color: #fff;
+	font-family: runda, sans-serif;
+	font-size: .83333333rem;
+	font-weight: 700;
+	letter-spacing: .05rem;
+	line-height: 1.2;
+	text-transform: uppercase;
+	border: 2px solid #141517;
+	cursor: pointer;
+	text-align: center;
+	transition: background-color 1s, color 1s;
+}
+
+.checkout a:hover {
+	color: white;
+	background-color: black;
+}
+
+.cart-footer p {
+	display: inline-block;
+	font-size: 1.33333333rem;
+	text-transform: uppercase;
+	color: #9d9fa3;
+	margin: 0;
+	font-weight: 300;
+}
+
+@media (max-width: 1576px) {
+
+	.btn-margin {
+		margin-right: auto;
+	}
+}
+
+@media (max-width: 1176px) {
+	.product-item {
+		width: unset;
+	}
+
+	.btn-margin {
+		margin-right: auto;
+	}
+
+	.cart-footer {
+		width: 100%;
+	}
+}
+
+@media (max-width: 736px) {
+
+	.product-item img {
+		width: 100%;
+	}
+
+	.product-item {
+		width: 100%;
+	}
+
+	.product-parent {
+		width: 50%;
+		text-align: center;
+	}
+
+	.all-product-items {
+		width: 50%;
+	}
+
+	#product-item-container {
+		gap: 0px;
+		justify-content: center;
+		margin-left: 50px;
+	}
+
+	.all-product-items img {
+		width: 100%;
+	}
+
+	.image-container {
+		text-align: center;
+	}
+
+	.product-images img {
+		width: 50%;
+	}
+
+	.product-name,
+	.product-price {
+		margin-top: 0;
+		margin-left: 0;
+		text-align: center;
+	}
+
+	.product-price {
+		float: unset;
+	}
+
+	.center-cart {
+		width: 95%;
+		flex-wrap: wrap;
+	}
+
+	.cart-table-left,
+	.cart-link-right {
+		width: 100%;
+	}
+
+	.discount {
+		flex-direction: column;
+	}
+
+	.btn-margin {
+		margin-right: 10rem;
+	}
+
+}

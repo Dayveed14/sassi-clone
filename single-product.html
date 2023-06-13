@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Product page</title>
+    <link rel="shortcut icon" href="./img/fav-icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <div class="navbar2" id="navbarScroll">
+        <header>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="logo"><a href="index.html"><img src="./img/logo2.png" alt=""></a></div>
+
+            <nav class="nav-bar">
+                <ul class="nav-links">
+                    <li class="dropdown2 nav-item">
+                        <a href="" class="dropbtn">About</a>
+                        <div class="dropdown-content">
+                            <a href="#"><img src="./img/about.jpg" alt=""><br>
+                                <h4>ABOUT</h4>
+                            </a>
+                            <a href="#"><img src="./img/responsibility.jpg" alt=""><br>
+                                <h4>RESPONSIBILITY</h4>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="dropdown2">
+                        <a class="dropbtn" href="shop.html">Bridal</a>
+                        <div class="dropdown-content">
+                            <a href="#"><img src="./img/bridal.png" alt=""><br>
+                                <h4>BRIDAL</h4>
+                            </a>
+                            <a href="#"><img src="./img/collections.jpg" alt=""><br>
+                                <h4>COLLECTIONS</h4>
+                            </a>
+                            <a href="#"><img src="./img/Accessories.jpg" alt=""><br>
+                                <h4>ACCESSORIES</h4>
+                            </a>
+                            <a href="#"><img src="./img/Second-look.jpg" alt=""><br>
+                                <h4>SECOND LOOK</h4>
+                            </a>
+                        </div>
+                    </li>
+                    <li class=" dropdown2">
+                        <a class="dropbtn" href="product.html">Fashion</a>
+                        <div class="dropdown-content">
+                            <a href="product.html"><img src="./img/ALL-Category.jpg" alt=""><br>
+                                <h4>ALL</h4>
+                            </a>
+                            <a href="product.html"><img src="./img/MOTB-category-1.jpg" alt=""><br>
+                                <h4>MOTHER-OF-THE-BRIDE</h4>
+                            </a>
+                            <a href="product.html"><img src="./img/Wedding-Guest-Category.jpg" alt=""><br>
+                                <h4>GUEST</h4>
+                            </a>
+                            <a href="product.html"><img src="./img/RACES-Dropdown.jpg" alt=""><br>
+                                <h4>RACES & SPECIAL OCCASIONS</h4>
+                            </a>
+                            <a href="product.html"><img src="./img/Second-Dress-Category.jpg" alt=""><br>
+                                <h4>SECOND LOOK</h4>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="dropdown2">
+                        <a class="dropbtn" href="">Appointment</a>
+                        <div class="dropdown-content">
+                            <a href="#">BOOK LONDON</a><a href="#">BOOK SOMMERSET</a>
+                        </div>
+                    </li>
+                    <li class="dropdown2">
+                        <a class="dropbtn" href="">Enquiries</a>
+                        <div class="dropdown-content">
+                            <a href="#">MAKE AN ENQUIRY</a>
+                        </div>
+                    </li>
+                    <li class="dropdown2">
+                        <a class="dropbtn" href="">Blog</a>
+                        <div class="dropdown-content">
+                            <a href="#"><img src="./img/blog1.png" alt=""><br>
+                                <h4>VIEW ALL</h4>
+                            </a>
+                            <a href="#"><img src="./img/blog2.jpg" alt=""><br>
+                                <h4>ARTICLES</h4>
+                            </a>
+                            <a href="#"><img src="./img/blog3.jpg" alt=""><br>
+                                <h4>AS SEEN ON</h4>
+                            </a>
+                            <a href="#"><img src="./img/blog4.jpg" alt=""><br>
+                                <h4>EVENTS</h4>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="dropdown2">
+                        <a class="dropbtn" href="">Our Stores</a>
+                        <div class="dropdown-content">
+                            <a href="#">LONDON</a><a href="#">SOMMERSET</a>
+                        </div>
+                    </li>
+                    <li class="dropdown2">
+                        <a class="dropbtn" href="">Stockist</a>
+                        <div class="dropdown-content">
+                            <a href="#"><img src="./img/stickist.jpg" alt=""><br>
+                                <h4>FIND A STOCKIST</h4>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="last-link">
+                        <a href="account.html">Account</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="inner-right">
+                <ul>
+                    <li>
+                        <a class="first-child" href="account.html">My Account</a>
+                    </li>
+                    <li>
+                        <a href=""><i class="fa fa-search"></i></a>
+                    </li>
+                    <li>
+                        <a href="cart.html"><i class="fa fa-shopping-bag"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+    </div>
+    <main>
+        <p id="loading"></p>
+
+        <div id="product_details" class="pdtt">
+        </div>
+        <h1 class="more-collection">MORE FROM THIS COLLECTION</h1>
+        <div class="product-images" style="margin-bottom: 17rem;">
+            <div class="image-container"><img src="./img/more1.jpg" alt="">
+                <p style="margin-top: 37px; margin-left: 50px;" class="product-name">PAIGNTON SKIRT</p>
+                <p style="margin-top: -12px; margin-left: 50px;" class="product-price">£895</p>
+            </div>
+            <div class="image-container hidden"><img src="./img/more2.jpg" alt="">
+                <p style="margin-top: 37px; margin-left: 50px;" class="product-name">PAIGNTON SKIRT</p>
+                <p style="margin-top: -12px; margin-left: 50px;" class="product-price">£895</p>
+            </div>
+            <div class="image-container hidden"><img src="./img/more 3.jpg" alt="">
+                <p style="margin-top: 37px; margin-left: 50px;" class="product-name">PAIGNTON SKIRT</p>
+                <p style="margin-top: -12px; margin-left: 50px;" class="product-price">£895</p>
+            </div>
+            <div class="image-container hidden"><img src="./img/more4.jpg" alt="">
+                <p style="margin-top: 37px; margin-left: 50px;" class="product-name">PAIGNTON SKIRT</p>
+                <p style="margin-top: -12px; margin-left: 50px;" class="product-price">£895</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="copyright col-2">
+            <h6>© 2023 SASSI HOLFORD</h6>
+            <a href="">TERMS & CONDITIONS</a>
+            <a href="">PRIVACY POLICY</a>
+            <a href="">WEBSITE BY GC</a>
+            <a href="">WEBSITE HOSTED AND MAINTAINED BY DOUBLE BRACE</a>
+        </div>
+        <div class="aboutUs col-2">
+            <h6>ABOUT US</h6>
+            <a href="">OUR STORES</a>
+            <a href="">STOCKISTS</a>
+            <a href="">OUR STORY</a>
+            <a href="">RESPONSIBILITY</a>
+            <a href="">BLOG</a>
+        </div>
+        <div class="collections col-2">
+            <h6>COLLECTIONS</h6>
+            <a href="">LET THERE BE LOVE</a>
+            <a href="">2022 LOVE CONQUERS ALL</a>
+            <a href="">ASTERIA</a>
+            <a href="">SASSI'S SIGNATURES</a>
+            <a href="">ACCESSORIES</a>
+        </div>
+        <div class="info col-2">
+            <h6>INFO</h6>
+            <a href="">SIZE HELP</a>
+            <a href="">DELIVERY AND RETURNS</a>
+            <a href="">FAQS</a>
+            <a href="">STOCKIST PORTAL</a>
+        </div>
+        <div class="followUs col-2">
+            <h6>FOLLOW SASSI</h6>
+            <div class="social">
+                <a href=""><img src="./img/facebook.png" alt=""></a><a href=""><img src="./img/instagram.png"
+                        alt=""></a><a href=""><img src="./img/pinterest.png" alt=""></a><a href=""><img
+                        src="./img/twitter.png" alt=""></a><a href=""><img src="./img/youtube.png" alt=""></a>
+            </div>
+            <h6>MAILING LIST</h6>
+            <a href="">SIGN UP</a>
+            <a href="">Sign up to receive 10% off your first online ready-to-wear order.</a>
+        </div>
+    </footer>
+    <div class="footer2">
+        <h4>JOIN OUR MAILING LIST</h4>
+        <p style="font-size: 13px;">Sign up for the latest news and receive 10% off your first online <br> ready-to-wear
+            order.</p>
+        <a href="account.html">Sign Up</a>
+        <h6>© 2023 Sassi Holford</h6>
+        <p style="color: #9d9fa3;;">TERMS & CONDITIONS <br>PRIVACY POLICY</p>
+        <div class="social-link">
+            <a href=""><img src="./img/facebook.png" alt=""></a><a href=""><img src="./img/instagram.png" alt=""></a><a
+                href=""><img src="./img/pinterest.png" alt=""></a><a href=""><img src="./img/twitter.png" alt=""></a><a
+                href=""><img src="./img/youtube.png" alt=""></a>
+        </div>
+    </div>
+    <script src="./js/jquery-3.6.4.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script>
+        let hamburger = document.querySelector(".hamburger");
+        hamburger.onclick = function () {
+            let navbar = document.querySelector(".nav-bar");
+            navbar.classList.toggle("active");
+        };
+    </script>
+</body>
+
+</html>

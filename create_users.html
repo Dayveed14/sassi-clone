@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Users</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+    <link href="font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href="./js/datatables.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="./img/fav-icon.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="navbar2" id="navbarScroll">
+        <header style=" box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);">
+            <div class="logo"><a href="index.html"><img src="./img/logo2.png" alt=""></a></div>
+            <div class="inner-right">
+                <ul>
+                    <li>
+                        <a class="first-child" href="account.html">My Account</a>
+                    </li>
+                    <li>
+                        <a href=""><i class="fa fa-search"></i></a>
+                    </li>
+                    <li>
+                        <a href="cart.html"><i class="fa fa-shopping-bag"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="logout()">Log Out</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+    </div>
+    <div class="sidebar">
+        <ul>
+            <li class="active"><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="admin_products.html">Products</a></li>
+            <li><a href="create_products.html">Create Products</a></li>
+            <li><a href="users.html">Users</a></li>
+            <li><a href="create_users.html">Create Users</a></li>
+        </ul>
+    </div>
+    <div class="content">
+
+        <div class="userForm">
+            <form action="" id="user-form-action">
+                <h1>Create Users</h1>
+                <h5>User Name</h5>
+                <input type="text" id="newUserName" placeholder="Name">
+                <h5>User Phone</h5>
+                <input type="tel" id="newUserPhone" placeholder="Phone">
+                <h5>User Email</h5>
+                <input type="email" id="newUserEmail" placeholder="Email">
+                <h5>User Password</h5>
+                <input type="password" id="newUserPassword" placeholder="Password"><br> <br>
+                <button class="button5">Submit</button>
+            </form>
+        </div>
+        <footer>
+            <div class="copyright col-2">
+                <h6>© 2023 SASSI HOLFORD</h6>
+                <a href="">TERMS & CONDITIONS</a>
+                <a href="">PRIVACY POLICY</a>
+                <a href="">WEBSITE BY GC</a>
+                <a href="">WEBSITE HOSTED AND MAINTAINED BY DOUBLE BRACE</a>
+            </div>
+            <div class="aboutUs col-2">
+                <h6>ABOUT US</h6>
+                <a href="">OUR STORES</a>
+                <a href="">STOCKISTS</a>
+                <a href="">OUR STORY</a>
+                <a href="">RESPONSIBILITY</a>
+                <a href="">BLOG</a>
+            </div>
+            <div class="collections col-2">
+                <h6>COLLECTIONS</h6>
+                <a href="">LET THERE BE LOVE</a>
+                <a href="">2022 LOVE CONQUERS ALL</a>
+                <a href="">ASTERIA</a>
+                <a href="">SASSI'S SIGNATURES</a>
+                <a href="">ACCESSORIES</a>
+            </div>
+            <div class="info col-2">
+                <h6>INFO</h6>
+                <a href="">SIZE HELP</a>
+                <a href="">DELIVERY AND RETURNS</a>
+                <a href="">FAQS</a>
+                <a href="">STOCKIST PORTAL</a>
+            </div>
+            <div class="followUs col-2">
+                <h6>FOLLOW SASSI</h6>
+                <div class="social">
+                    <a href=""><img src="./img/facebook.png" alt=""></a><a href=""><img src="./img/instagram.png"
+                            alt=""></a><a href=""><img src="./img/pinterest.png" alt=""></a><a href=""><img
+                            src="./img/twitter.png" alt=""></a><a href=""><img src="./img/youtube.png" alt=""></a>
+                </div>
+                <h6>MAILING LIST</h6>
+                <a href="">SIGN UP</a>
+                <a href="">Sign up to receive 10% off your first online ready-to-wear order.</a>
+            </div>
+        </footer>
+        <div class="footer2">
+            <h4>JOIN OUR MAILING LIST</h4>
+            <p style="font-size: 13px;">Sign up for the latest news and receive 10% off your first online <br>
+                ready-to-wear
+                order.</p>
+            <a href="account.html">Sign Up</a>
+            <h6>© 2023 Sassi Holford</h6>
+            <p style="color: #9d9fa3;;">TERMS & CONDITIONS <br>PRIVACY POLICY</p>
+            <div class="social-link">
+                <a href=""><img src="./img/facebook.png" alt=""></a><a href=""><img src="./img/instagram.png"
+                        alt=""></a><a href=""><img src="./img/pinterest.png" alt=""></a><a href=""><img
+                        src="./img/twitter.png" alt=""></a><a href=""><img src="./img/youtube.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery-3.6.4.min.js"></script>
+    <script src="./js/datatables.min.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

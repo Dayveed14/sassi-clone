@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 2000px;
+            /* Just for demonstration purposes */
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #f1f1f1;
+            padding: 10px;
+            display: none;
+            /* Hide the navbar by default */
+            transition: top 0.3s;
+        }
+
+        .content {
+            padding-top: 50px;
+            /* Add padding to the content to avoid overlapping with the navbar */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar" id="navbar">
+        <h1>Navigation Bar</h1>
+    </div>
+
+    <div class="content">
+        <h1>Scroll Down</h1>
+        <p>Scroll down the page to see the effect.</p>
+    </div>
+
+    <script>
+        var prevScrollPos = window.pageYOffset; // Track the previous scroll position
+
+        window.onscroll = function () {
+            var currentScrollPos = window.pageYOffset;
+
+            // Show or hide the navbar based on the scroll direction
+            if (prevScrollPos > currentScrollPos) {
+                document.getElementById("navbar").style.top = "0";
+            } else {
+                document.getElementById("navbar").style.top = "-50px"; // Adjust the value to match the height of your navbar
+            }
+
+            prevScrollPos = currentScrollPos;
+        };
+
+    </script>
+
+</body>
+
+</html>

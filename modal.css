@@ -1,0 +1,152 @@
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    bottom: 20px;
+    /* Updated position */
+    right: 20px;
+    /* Updated position */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    max-width: 900px;
+    padding-top: 30px;
+    /* Added max-width to limit width */
+    transform: translateX(100%);
+    /* Slide in from the right */
+    transition: transform .5s ease-out;
+    /* Transition animation */
+}
+
+.modal h4 {
+    color: #141517;
+    font-size: 1.16666667rem;
+    line-height: 1.4;
+    letter-spacing: .04rem;
+    font-weight: 500;
+}
+
+.shopping-cart {
+    padding: 0px 50px;
+}
+
+.modal-content .shopping-cart-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    gap: 50px;
+    margin: 20px 0;
+
+}
+
+.modal-content .shopping-cart-content .left-cart-content img {
+    width: 100px;
+}
+
+.modal-content .shopping-cart-content .right-cart-content h3 {
+    font-weight: 400;
+    color: #9d9fa3;
+    line-height: 1.4;
+    letter-spacing: .04rem;
+}
+
+.modal-content .shopping-cart-content .right-cart-content p,
+.cart-footer p {
+    display: inline-block;
+    font-size: 1.33333333rem;
+    text-transform: uppercase;
+    color: #9d9fa3;
+    margin: 0;
+    font-weight: 300;
+}
+
+/* The Close Button */
+.close {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    /* Added position absolute */
+    top: 0;
+    /* Positioned at the top */
+    right: 0;
+    /* Positioned at the right */
+    margin: 10px;
+    /* Added some margin for spacing */
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.cart-footer {
+    background-color: #f1f1f1;
+    height: 200px;
+    padding: 0 50px;
+}
+
+.footer-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkout a {
+    padding: 1.33333333rem 2.08333333rem;
+    color: #141517;
+    background-color: #fff;
+    font-family: runda, sans-serif;
+    font-size: .83333333rem;
+    font-weight: 700;
+    letter-spacing: .05rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    border: 2px solid #141517;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 1s, color 1s;
+}
+
+.checkout a:hover {
+    color: white;
+    background-color: black;
+}
+
+.btn-margin {
+    margin-right: 20px;
+}
+
+
+@media (max-width: 736px) {
+    .modal {
+        bottom: 0;
+        /* Updated position */
+        right: 0;
+        left: 0;
+        /* Updated position */
+    }
+
+    .checkout {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modal h4 {
+        float: left;
+    }
+
+    .modal hr {
+        display: none;
+    }
+}
