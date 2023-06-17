@@ -180,61 +180,6 @@ function removeCartItem(index) {
   }
 }
 // CART TABLE
-/* function showCartTable() {
-  var cartRowHTML = "";
-  var itemCount = 0;
-  var grandTotal = 0;
-
-  if (sessionStorage.getItem("shopping-cart")) {
-    var shoppingCart = JSON.parse(sessionStorage.getItem("shopping-cart"));
-    itemCount = shoppingCart.length;
-
-    shoppingCart.forEach(function (item, index) {
-      var cartItem = JSON.parse(item);
-      var price = parseFloat(cartItem.price);
-      var quantity = parseInt(cartItem.quantity);
-      var subTotal = price * quantity;
-
-      cartRowHTML +=
-        "<tr>" +
-        "<td><img src='" +
-        cartItem.image +
-        "' alt='Product Image'></td>" +
-        "<td class='table-pdt-name'>" +
-        cartItem.productName +
-        "<br><br>" +
-        "<a class='remove-button' href='' onclick='removeCartItem(" +
-        index +
-        ")'>[ Remove ]</a>" +
-        "</td>" +
-        "<td class='text-right'>" +
-        "<select name='quantity' id='quantity_" +
-        index +
-        "'>" +
-        "<option value='1'>1</option>" +
-        "<option value='2'>2</option>" +
-        "<option value='3'>3</option>" +
-        "<option value='4'>4</option>" +
-        "<option value='5'>5</option>" +
-        "</select>" +
-        "</td>" +
-        "<td class='text-right table-price'>" +
-        "<span class='price'>£" +
-        price.toFixed(2) +
-        "</span>" +
-        "</tr>";
-
-      grandTotal += subTotal;
-    });
-  }
-
-  $("#cartTableBody").html(cartRowHTML);
-  $("#itemCount").text(itemCount);
-  $("#count").text(itemCount);
-  $("#adminCart").text(itemCount);
-  $("#totalAmount").text("£" + grandTotal.toFixed(2));
-} */
-
 function showCartTable() {
   var cartRowHTML = "";
   var itemCount = 0;
@@ -267,7 +212,7 @@ function showCartTable() {
         index +
         "' onchange='updateCartItem(" +
         index +
-        ", this.value)'>" + // Add onchange event listener to call updateCartItem() function
+        ", this.value)'>" +
         "<option value='1' " +
         (quantity === 1 ? "selected" : "") +
         ">1</option>" +
@@ -355,7 +300,7 @@ function showProductGallery(product) {
       item._id +
       '">' +
       '<div class="all-product-items">' +
-      '<img src="product-images/' +
+      '<img src="http://159.65.21.42:9000' +
       item.image +
       '">' +
       '<div class="productname">' +
@@ -391,7 +336,6 @@ $(document).ready(function () {
             item.email,
             item.phone,
             item.password,
-            item.__v,
             '<a class="btnDesign" href="' + editUrl + '">Edit</a>',
             '<button class="deleteBtn btnDesign" data-id="' +
               item._id +
@@ -450,7 +394,7 @@ function displayProduct2(product) {
             <a href="product.html"><i class="fa fa-long-arrow-left"></i> SHOP / ALL</a>
           </div>
           <div class="product-item productitem">
-          <div style="display: none;" class ="product-img"><img src="product-images/${product.image}" alt=""></div>
+          <div style="display: none;" class ="product-img"><img src="http://159.65.21.42:9000${product.image}" alt=""></div>
           <h1 class="productname">${product.name}</h1>
           <div class="price">£<span> ${product.price}</span></div>
           <p class="desc">${product.description}</p>
@@ -476,7 +420,7 @@ function displayProduct2(product) {
 
                                 <div class="shopping-cart-content">
                                     <div class="left-cart-content">
-                                        <img src="product-images/${product.image}" alt="">
+                                        <img src="http://159.65.21.42:9000${product.image}" alt="">
                                     </div>
                                     <div class="right-cart-content">
                                         <h4>${product.name}</h4>
@@ -508,7 +452,7 @@ function displayProduct2(product) {
         </div>
         <div class="right-content" style="display: flex; align-items: center;">
         <i class="fa fa-angle-left" style="font-size:5rem;"></i>
-          <img src="product-images/${product.image}" alt="">
+          <img src="http://159.65.21.42:9000${product.image}" alt="">
           <i class="fa fa-angle-right" style="font-size:5rem;"></i>
         </div> 
       </div>
@@ -570,7 +514,6 @@ $(document).ready(function () {
             item.category,
             item.price,
             item.quantity,
-            item.description,
             '<a class="btnDesign" href="' + editPdtUrl + '">Edit</a>',
             '<button class="deleteBtn2 btnDesign" data-id="' +
               item._id +
@@ -598,14 +541,7 @@ $(document).ready(function () {
       });
       filteredProducts.forEach(function (item) {
         dataTable.row
-          .add([
-            item._id,
-            item.name,
-            item.category,
-            item.price,
-            item.quantity,
-            item.description,
-          ])
+          .add([item._id, item.name, item.category, item.price, item.quantity])
           .draw(false);
       });
       const totalItems = dataTable.rows().count();
@@ -635,10 +571,11 @@ $(document).ready(function () {
     type: "GET",
     success: function (user) {
       // Populate the form fields with the retrieved user details
-      $("#oldId").html(user._id);
-      $("#oldName").html(user.name);
-      $("#oldEmail").html(user.email);
-      $("#oldPhone").html(user.phone);
+      // $("#oldId").html(user._id);
+      $("#newName").val(user.name);
+      $("#newEmail").val(user.email);
+      $("#newPhone").val(user.phone);
+      $("#newPassword").val(user.password);
     },
     error: function (error) {
       console.log(error);
@@ -711,12 +648,11 @@ $(document).ready(function () {
     url: `http://159.65.21.42:9000/product/${pdtEditId}`,
     type: "GET",
     success: function (product) {
-      $("#oldName").html(product.name);
-      $("#oldCategory").html(product.category);
-      $("#oldPrice").html(product.price);
-      $("#oldQuantity").html(product.quantity);
-      $("#oldImage").html(product.image);
-      $("#oldDescription").html(product.description);
+      $("#newName").val(product.name);
+      $("#newCategory").val(product.category);
+      $("#newPrice").val(product.price);
+      $("#newQuantity").val(product.quantity);
+      $("#newDescription").val(product.description);
     },
     error: function (error) {
       console.log(error);
@@ -725,6 +661,7 @@ $(document).ready(function () {
   $("#form-action").on("submit", function (e) {
     e.preventDefault();
     let updatedProduct = new FormData();
+    updatedProduct.append("_id", pdtEditId);
     updatedProduct.append("name", $("#newName").val());
     updatedProduct.append("category", $("#newCategory").val());
     updatedProduct.append("price", $("#newPrice").val());
@@ -743,8 +680,8 @@ $(document).ready(function () {
       return alert("Please fill this form!");
     }
     $.ajax({
-      url: `http://159.65.21.42:9000/product/${pdtEditId}`,
-      type: "POST",
+      url: `http://159.65.21.42:9000/update/product/${pdtEditId}`,
+      type: "PUT",
       data: updatedProduct,
       processData: false,
       contentType: false,

@@ -91,6 +91,10 @@ body {
 	width: 30%;
 }
 
+.product-parent img {
+	width: 100%;
+}
+
 .product-parent .product-child .productname p {
 	font-weight: 800;
 	color: #141517;
