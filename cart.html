@@ -142,12 +142,11 @@
         </div>
         <div class="cart-alert">
             <h3>YOUR BAG</h3>
-            <p>YOU'VE GOT <b id="count"></b> ITEM(S) IN YOUR BAG</p>
+            <p>YOU'VE GOT <b id="totalItems"></b> ITEM(S) IN YOUR BAG</p>
         </div>
         <div style="margin-bottom: 200px;" id="shopping-cart">
             <div class="center-cart">
                 <div class="cart-table-left">
-                    <a onClick="emptyCart()" id="btnEmpty">Empty Cart</a>
                     <table class="tbl-cart" cellpadding="10" cellspacing="1">
                         <thead>
                             <tr>
@@ -172,7 +171,7 @@
                     <div class="discount">
                         <input type="text" id="username" name="username" required>
                         <button class="updateCartBtn">APPLY</button>
-                        <button class="updateCartBtn" id="updateCartBtn">UPDATE CART</button>
+                        <button class="updateCartBtn" id="reloadButton">UPDATE CART</button>
                     </div>
                     <div style="margin-top: 50px;" class="cart-footer">
                         <div class="footer-price">

@@ -1,3 +1,6 @@
+let cartItems = sessionStorage.cartProducts
+  ? JSON.parse(sessionStorage.cartProducts)
+  : [];
 // HTML SCRIPTS
 $(document).ready(function () {
   $(".zoomable-image")
@@ -112,182 +115,6 @@ function logout() {
 
   window.location.href = "index.html";
 }
-// GET ALL PRODUCTS
-$.ajax({
-  url: "http://159.65.21.42:9000/products",
-  type: "GET", // POST GET PUT DELETE
-  error: function (err) {
-    console.log(err);
-  },
-  success: function (res) {
-    var filteredProducts = res.filter(function (product) {
-      var category = product.category;
-      return category === "SASSI";
-    });
-    showProductGallery(filteredProducts);
-    showCartTable();
-  },
-  beforeSend: function () {
-    $("#loading").text("Loading...");
-  },
-  complete: function () {
-    $("#loading").text("");
-  },
-});
-// ADD TO CART
-function addToCart(element) {
-  var productParent = $(element).closest("div.product-item");
-
-  var price = $(productParent).find(".price span").text();
-  var productName = $(productParent).find(".productname").text();
-  var quantity = $(productParent).find(".product-quantity").val();
-  var imageSrc = $(productParent).find(".product-img img").attr("src");
-
-  var cartItem = {
-    productName: productName,
-    price: price,
-    quantity: quantity,
-    image: imageSrc,
-  };
-  var cartItemJSON = JSON.stringify(cartItem);
-
-  var cartArray = new Array();
-  // If javascript shopping cart session is not empty
-  if (sessionStorage.getItem("shopping-cart")) {
-    cartArray = JSON.parse(sessionStorage.getItem("shopping-cart"));
-  }
-  cartArray.push(cartItemJSON);
-
-  var cartJSON = JSON.stringify(cartArray);
-  sessionStorage.setItem("shopping-cart", cartJSON);
-  showCartTable();
-}
-// EMPTY CART
-function emptyCart() {
-  if (sessionStorage.getItem("shopping-cart")) {
-    // Clear JavaScript sessionStorage by index
-    sessionStorage.removeItem("shopping-cart");
-    showCartTable();
-  }
-}
-// REMOVE FROM CART
-function removeCartItem(index) {
-  if (sessionStorage.getItem("shopping-cart")) {
-    var shoppingCart = JSON.parse(sessionStorage.getItem("shopping-cart"));
-    shoppingCart.splice(index, 1); // Remove the item at the specified index
-    sessionStorage.setItem("shopping-cart", JSON.stringify(shoppingCart));
-    showCartTable();
-  }
-}
-// CART TABLE
-function showCartTable() {
-  var cartRowHTML = "";
-  var itemCount = 0;
-  var grandTotal = 0;
-
-  if (sessionStorage.getItem("shopping-cart")) {
-    var shoppingCart = JSON.parse(sessionStorage.getItem("shopping-cart"));
-    itemCount = shoppingCart.length;
-
-    shoppingCart.forEach(function (item, index) {
-      var cartItem = JSON.parse(item);
-      var price = parseFloat(cartItem.price);
-      var quantity = parseInt(cartItem.quantity);
-      var subTotal = price * quantity;
-
-      cartRowHTML +=
-        "<tr>" +
-        "<td><img src='" +
-        cartItem.image +
-        "' alt='Product Image'></td>" +
-        "<td class='table-pdt-name'>" +
-        cartItem.productName +
-        "<br><br>" +
-        "<a class='remove-button' href='' onclick='removeCartItem(" +
-        index +
-        ")'>[ Remove ]</a>" +
-        "</td>" +
-        "<td class='text-right'>" +
-        "<select name='quantity' id='quantity_" +
-        index +
-        "' onchange='updateCartItem(" +
-        index +
-        ", this.value)'>" +
-        "<option value='1' " +
-        (quantity === 1 ? "selected" : "") +
-        ">1</option>" +
-        "<option value='2' " +
-        (quantity === 2 ? "selected" : "") +
-        ">2</option>" +
-        "<option value='3' " +
-        (quantity === 3 ? "selected" : "") +
-        ">3</option>" +
-        "<option value='4' " +
-        (quantity === 4 ? "selected" : "") +
-        ">4</option>" +
-        "<option value='5' " +
-        (quantity === 5 ? "selected" : "") +
-        ">5</option>" +
-        "</select>" +
-        "</td>" +
-        "<td class='text-right table-price'>" +
-        "<span class='price'>£" +
-        price.toFixed(2) +
-        "</span>" +
-        "</td>" +
-        "</tr>";
-
-      grandTotal += subTotal;
-    });
-
-    var cartTableBody = document.getElementById("cartTableBody");
-    cartTableBody.innerHTML = cartRowHTML;
-
-    var updateCartBtn = document.getElementById("updateCartBtn");
-    updateCartBtn.addEventListener("click", updateCartPrice);
-
-    var totalItemsElement = document.getElementById("itemCount");
-    totalItemsElement.textContent = totalItems.toFixed(2);
-  }
-  $("#itemCount").text(itemCount);
-  $("#count").text(itemCount);
-  $("#adminCart").text(itemCount);
-}
-
-// UPDATE CART ITEM
-function updateCartItem(index, quantity) {
-  if (sessionStorage.getItem("shopping-cart")) {
-    var shoppingCart = JSON.parse(sessionStorage.getItem("shopping-cart"));
-
-    if (index >= 0 && index < shoppingCart.length) {
-      var cartItem = JSON.parse(shoppingCart[index]);
-      cartItem.quantity = quantity;
-      shoppingCart[index] = JSON.stringify(cartItem);
-      sessionStorage.setItem("shopping-cart", JSON.stringify(shoppingCart));
-      showCartTable();
-    }
-  }
-}
-
-// UPDATE CART PRICE
-function updateCartPrice() {
-  if (sessionStorage.getItem("shopping-cart")) {
-    var shoppingCart = JSON.parse(sessionStorage.getItem("shopping-cart"));
-    var grandTotal = 0;
-
-    shoppingCart.forEach(function (item) {
-      var cartItem = JSON.parse(item);
-      var price = parseFloat(cartItem.price);
-      var quantity = parseInt(cartItem.quantity);
-      var subTotal = price * quantity;
-
-      grandTotal += subTotal;
-    });
-
-    var totalAmount = document.getElementById("totalAmount");
-    totalAmount.textContent = "£" + grandTotal.toFixed(2);
-  }
-}
 // DISPLAY ALL PRODUCTS
 function showProductGallery(product) {
   //Iterate javascript shopping cart array
@@ -349,7 +176,27 @@ $(document).ready(function () {
     },
   });
 });
-
+// GET ALL PRODUCTS
+$.ajax({
+  url: "http://159.65.21.42:9000/products",
+  type: "GET", // POST GET PUT DELETE
+  error: function (err) {
+    console.log(err);
+  },
+  success: function (res) {
+    var filteredProducts = res.filter(function (product) {
+      var category = product.category;
+      return category === "SASSI";
+    });
+    showProductGallery(filteredProducts);
+  },
+  beforeSend: function () {
+    $("#loading").text("Loading...");
+  },
+  complete: function () {
+    $("#loading").text("");
+  },
+});
 // DISPLAY SINGLE PRODUCT
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get("id");
@@ -378,6 +225,8 @@ $(document).ready(function () {
     type: "GET",
     success: function (response) {
       displayProduct2(response);
+      let imagez = "http://159.65.21.42:9000" + response.image;
+      $("#modalBtn").data("image", imagez);
     },
     error: function (error) {
       console.log(error);
@@ -385,7 +234,7 @@ $(document).ready(function () {
   });
 });
 
-function displayProduct2(product) {
+function displayProduct2(product, index) {
   let data = `
     <section class="singlepdt">
       <div class="single-pdt-content">
@@ -404,7 +253,7 @@ function displayProduct2(product) {
           <p class="size"> 36 38 40 42 44 46</p>
           <div class="cart-action">
           <input style="display: none;" type="number" class="product-quantity" name="quantity" value="1" size="2" />
-            <input id="modalBtn" class="cart-button" type="submit" value="Add to Cart" class="add-to-cart" onclick="openModal(); addToCart(this);" />
+            <input id="modalBtn" class="cart-button add-to-cart" type="submit" value="Add to Cart" onclick="openModal();" data-name="${product.name}" data-price="${product.price}"/>
           </div>
           <div class='inner-mob-links'>
           <a href="">SIZE HELP +</a> <br>
@@ -426,14 +275,14 @@ function displayProduct2(product) {
                                         <h4>${product.name}</h4>
                                         <h3>Size: 44</h3>
                                         <p class="price">£ ${product.price}</p><br><br>
-                                        <a class='remove-button' href='' onclick='removeCartItem(index)'>[ Remove ]</a>
+                                        <a class='remove-button' href='' onclick='removeProduct2(${index})'>[ Remove ]</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="cart-footer">
                             <div class="footer-price">
                                 <h3>SUB TOTAL</h3>
-                                <p>£1935</p>
+                                <p>£${product.price}</p>
                             </div>
                             <div class="checkout">
                                 <input class="cart-button btn-margin" type="submit" value="CHECKOUT"
@@ -460,7 +309,22 @@ function displayProduct2(product) {
   `;
   $("#product_details").html(data);
 }
+
+//check local storage
+function checkStorage() {
+  if (sessionStorage.getItem("cart") != null) {
+    cartItems = JSON.parse(sessionStorage.getItem("cartProduct"));
+  }
+}
 fetchProductDetails(productId);
+
+function removeProduct2(index) {
+  cartItems.splice(index, -1);
+  sessionStorage.setItem("cartProducts", JSON.stringify(cartItems));
+  checkStorage();
+  location.reload();
+}
+
 // PRODUCT MODAL
 function openModal() {
   // Get the modal
@@ -488,10 +352,140 @@ function closeModal() {
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
   var modal = document.getElementById("myModal");
-  if (event.target == modal) {
+  if (event.target != modal) {
     closeModal();
   }
 };
+
+$("body").on("click", ".add-to-cart", function () {
+  let name = $(this).data("name");
+  let price = $(this).data("price");
+  let image = $(this).data("image");
+  let cart_quantity = 1;
+  let unit_price = price;
+  let cartProduct = {
+    name: name,
+    price: price,
+    image: image,
+    cart_quantity: cart_quantity,
+    unit_price: unit_price,
+  };
+  cartItems.push(cartProduct);
+  sessionStorage.setItem("cartProducts", JSON.stringify(cartItems));
+});
+function showCartTable() {
+  // Get the table body element
+  const tableBody = document.getElementById("cartTableBody");
+
+  // Clear the existing table rows
+  tableBody.innerHTML = "";
+  let totalPrice = 0;
+  // Iterate over the cart items and create table rows
+  for (let i = 0; i < cartItems.length; i++) {
+    const item = cartItems[i];
+
+    // Create a new table row
+    const row = document.createElement("tr");
+    // Create table data for product image
+    const imageData = document.createElement("td");
+    const image = document.createElement("img");
+    image.src = item.image;
+    image.alt = item.name;
+    imageData.appendChild(image);
+    row.appendChild(imageData);
+
+    // Create table data for product name
+    const nameData = document.createElement("td");
+    nameData.textContent = item.name;
+    nameData.classList.add("table-pdt-name");
+    row.appendChild(nameData);
+
+    // Create table data for line break
+
+    const lineBreak = document.createElement("br");
+    nameData.appendChild(lineBreak);
+    const lineBreak2 = document.createElement("br");
+    nameData.appendChild(lineBreak2);
+
+    // Create table data for remove button
+
+    const removeButton = document.createElement("a");
+    removeButton.textContent = "[Remove]";
+    removeButton.href = "#";
+    removeButton.style.textTransform = "uppercase";
+    removeButton.style.fontWeight = "700";
+    removeButton.addEventListener("click", () => {
+      removeProduct(i);
+      showCartTable();
+    });
+    nameData.appendChild(removeButton);
+
+    // Create table data for the select input
+    const selectData = document.createElement("td");
+    const selectInput = document.createElement("select");
+    selectInput.classList.add("quantity-select");
+    selectInput.dataset.index = i; // Use dataset.index to store the index
+    selectInput.dataset.price = item.price; // Use dataset.price to store the price
+
+    // Create and append option elements to the select input
+    const option0 = document.createElement("option");
+    option0.value = "";
+    option0.textContent = "Select Quantity";
+    selectInput.appendChild(option0);
+
+    for (let quantity = 1; quantity <= 5; quantity++) {
+      const option = document.createElement("option");
+      option.value = quantity;
+      option.textContent = quantity;
+      selectInput.appendChild(option);
+    }
+
+    // Append the select input to the table data
+    selectData.appendChild(selectInput);
+    row.appendChild(selectData);
+
+    // Create table data for product price
+    const priceData = document.createElement("td");
+    priceData.textContent = item.price;
+    priceData.classList.add("table-price");
+    console.log(priceData.textContent);
+    row.appendChild(priceData);
+
+    // Add the row to the table body
+    tableBody.appendChild(row);
+    totalPrice += item.price;
+  }
+  // Update total amount in HTML
+  const totalAmountElement = document.getElementById("totalAmount");
+  totalAmountElement.textContent = totalPrice.toFixed(2);
+  const totalItemsElement = document.getElementById("totalItems");
+  totalItemsElement.textContent = cartItems.length;
+}
+showCartTable();
+
+$(".quantity-select").on("change", function () {
+  let index = $(this).attr("data-index");
+  let newQuantity = parseInt($(this).val());
+  cartItems[index]["cart_quantity"] = newQuantity;
+  cartItems[index]["price"] = cartItems[index]["unit_price"] * newQuantity;
+  sessionStorage.setItem("cartProducts", JSON.stringify(cartItems));
+  checkStorage();
+  // location.reload();
+});
+
+const reloadButton = document.getElementById("reloadButton");
+reloadButton.addEventListener("click", function () {
+  // Reload the page
+  location.reload();
+});
+
+function removeProduct(index) {
+  cartItems.splice(index, 1);
+  sessionStorage.setItem("cartProducts", JSON.stringify(cartItems));
+  checkStorage();
+  location.reload();
+}
+
 // PRODUCT DATATABLE
 $(document).ready(function () {
   const dataTable = $("#pdtTable").DataTable();

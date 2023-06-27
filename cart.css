@@ -59,11 +59,6 @@ body {
 	font-weight: 600;
 }
 
-#btnEmpty {
-	float: right;
-	margin-bottom: 30px;
-}
-
 .add-to-cart {
 	padding: 5px 10px;
 	margin-left: 5px;
@@ -220,7 +215,8 @@ th {
 	font-weight: 300;
 }
 
-.remove-button {
+.remove-button,
+td a {
 	color: #141517;
 	text-transform: uppercase;
 	font-size: .8rem;
@@ -232,7 +228,7 @@ th {
 }
 
 table select {
-	width: 100%;
+	width: unset;
 	max-width: 100%;
 	padding: 0.5rem 0.5rem 0.5rem 0;
 	border: none;
